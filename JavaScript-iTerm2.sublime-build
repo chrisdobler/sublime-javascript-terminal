@@ -1,0 +1,4 @@
+{
+    "cmd": ["/usr/local/bin/JavaScript-iTerm2.sh", "$file", "/usr/local/bin/node", "$project_path"],
+    "selector" : "source.js"
+}
