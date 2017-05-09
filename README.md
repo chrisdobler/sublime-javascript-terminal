@@ -1,6 +1,6 @@
 # Sublime Javascript iTerm2
 
-Based on the wonderful build system created by @dwkns entitled - sublime-terminal, this one is the same thing except for JavaScript.
+Based on the wonderful build system created by [dwkns](https://github.com/dwkns) entitled - [sublime-terminal](https://github.com/dwkns/sublime-terminal), this one is the same thing except for JavaScript.
 
 > A build system for Sublime Text 3 which runs your .js files in iTerm2. OS X only.
 
