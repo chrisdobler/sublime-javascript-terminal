@@ -1,16 +1,16 @@
-# Sublime Ruby iTerm2
+# Sublime Javascript iTerm2
 
+Based on the wonderful build system created by @dwkns entitled - sublime-terminal, this one is the same thing except for JavaScript.
 
-
-> A build system for Sublime Text 3 which runs your .rb files in iTerm2. OS X only.
+> A build system for Sublime Text 3 which runs your .js files in iTerm2. OS X only.
 
 ### Important 
 You must use v2.9 or later of [iTerm2](http://iterm2.com/downloads).
 
 ### What does it do?
-Opens a terminal window and passes your current .rb file to the default Ruby. 
+Opens a terminal window and passes your current .js file to the default Javascript. 
 
-With Ruby this is useful when you have a script which requires user input (such as gets.chomp) something the Sublime console doesn't allow. 
+With Javascript this is useful when you have a script which requires user input (such as gets.chomp) something the Sublime console doesn't allow. 
 
 ---
 
@@ -18,38 +18,43 @@ With Ruby this is useful when you have a script which requires user input (such 
 Clone the repo into the right place
 
     $ cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
-    $ git clone https://github.com/dwkns/ruby-iTerm2.git
+    $ git clone https://github.com/chrisdobler/Javascript-iTerm2.git
 
-Make `ruby-iterm2.sh` executable
+Make `Javascript-iterm2.sh` executable
 
-    $ chmod u+x ruby-iTerm2/ruby-iterm2.sh
+    $ chmod u+x Javascript-iTerm2/Javascript-iterm2.sh
 
 Add a link from `/usr/local/bin` to the build script to ensure it runs
 	
-	$ ln -s ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/ruby-iTerm2/ruby-iTerm2.sh /usr/local/bin
+	$ ln -s ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Javascript-iTerm2/Javascript-iTerm2.sh /usr/local/bin
 
-Set ruby-terminal to be the default build system in Sublime
+Set Javascript-terminal to be the default build system in Sublime
 
-`Tools > Build System > ruby-iTerm2`
+`Tools > Build System > Javascript-iTerm2`
 
 
 ### Usage
 
-**Ruby**
-In sublime create a new ruby file such as `main.rb` :
+**Javascript**
+In sublime create a new Javascript file such as `main.js` :
 
-	print "Enter some text : "
-	output = gets.chop
-	puts "You entered : " + output
+	console.log "Enter some text : "
+
+	var stdin = process.openStdin();
+
+	stdin.addListener("data", function(d) {
+	    console.log("you entered: [" + 
+	        d.toString().trim() + "]");
+	  });
 
 Hit <kbd>⌘B</kbd> to run the file.
 
 
-The Terminal will open and `ruby path/to/main.rb` will be run.
+The Terminal will open and `Javascript path/to/main.js` will be run.
 
 
 ### How it works
-`ruby-iTerm2.sh` uses some Applescript (hence OS X only) to open iTerm2 and pass in your .rb file.
+`Javascript-iTerm2.sh` uses some Applescript (hence OS X only) to open iTerm2 and pass in your .js file.
 
 If iTerm2 is not open, it will be opened.
 
